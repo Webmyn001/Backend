@@ -34,7 +34,7 @@ const storage = multer.diskStorage({
 ])
 
 
-router.post('/addlesson', multipleUpload , createLesson)
+router.post('/', multipleUpload , createLesson)
 router.get('/get', getLessons)
 router.get('/:id', getLesson)
 router.delete('/:id', deleteLesson)

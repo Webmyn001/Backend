@@ -25,20 +25,20 @@ let Lesson = new Schema({
     {
         data: Buffer,
         contentType: String,
-        required: false
+        
 
     },
     image2: 
     {
         data: Buffer,
         contentType: String,
-        required: false
+        
     },
     image3: 
     {
         data: Buffer,
         contentType: String,
-        required: false
+        
 
     },
     

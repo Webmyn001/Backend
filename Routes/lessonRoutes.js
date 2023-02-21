@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Lesson = require ("../models/lessonModel")
+const Lesson = require ("../Models/lessonModels")
 const multer = require('multer')
 
 const {createLesson,
@@ -9,7 +9,7 @@ const {createLesson,
     getLesson,
     updatelesson,
    
-} = require ('../controller/lessonController')
+} = require ('../Controller/lessonController')
 
 const router = express.Router()
 
@@ -26,14 +26,16 @@ const storage = multer.diskStorage({
 
   let upload = multer({storage : storage})
   const multipleUpload = upload.fields([
-    {name : "IDcardimage",  maxCount: 1 },
-    {name: "Jambimage",  maxCount: 1 }
+    {name : "image1",  maxCount: 1 },
+    {name: "image2",  maxCount: 1 },
+    {name: "image3",  maxCount: 1 }
+
 
 ])
 
 
-router.post('/add', multipleUpload , createLesson)
-router.get('/', getLessons)
+router.post('/', multipleUpload , createLesson)
+router.get('/get', getLessons)
 router.get('/:id', getLesson)
 router.delete('/:id', deleteLesson)
 router.patch('/:id', updatelesson)

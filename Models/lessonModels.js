@@ -1,45 +1,52 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let Lesson = new Schema({
-    Name: {
+    Title: {
         type: String,
-        required: true
+        
     },
-    School: {
+    Subtitle: {
         type: String,
-        required: true
+       
     },
-    BankName: {
+    Body1: {
         type: String,
-        required: true
+       
     },
-    AcctName: {
+    Body2: {
         type: String,
-        required: true
+       
     },
-    AcctNo: {
+    Body3: {
         type: String,
-        required: true
+       
     },
-    IDcardimage: 
+    image1: 
     {
         data: Buffer,
-        contentType: String
+        contentType: String,
+        
+
     },
-    Jambimage: 
+    image2: 
     {
         data: Buffer,
-        contentType: String
+        contentType: String,
+        
+    },
+    image3: 
+    {
+        data: Buffer,
+        contentType: String,
+        
+
     },
     
-    Whatsapp: {
+    Body4: {
         type: String,
-        required: true
+       
     },
-    Shortnote: {
-        type: String,
-        required: true
-    },
+    
     
 },{ timestamps: true });
 module.exports = mongoose.model('Lesson', Lesson);

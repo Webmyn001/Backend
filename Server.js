@@ -21,20 +21,28 @@ app.use((req,res, next) => {
 })
 
 
+
+
+
+mongoose.set('strictQuery', false);
+const connectDB = async ()=> {
+   try{
+      const conn = await mongoose.connect(process.env.MONGO_URI);
+      console.log(`Mongodb connected :${conn.connection.host}`);
+
+   } catch (error){
+      console.log(error);
+      process.exit(1);
+   }
+}
+
 app.use("/api/lessons", lessonRoutes)
 app.use("/api/comment", commentRoutes)
 
 
 
-
- 
-mongoose.connect(process.env.MONGO_URI
-   )
- .then(()=>{
-    app.listen(process.env.PORT, ()=> {
-    console.log('listening on port 5000.......................')
-})
-
- }). catch((error) => {
-    console.log(error)
- })
+connectDB().then(()=> {
+   app.listen(PORT, ()=> {
+      console.log(`listening on port ${PORT}`)
+   })
+});

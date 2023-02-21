@@ -1,5 +1,6 @@
 const lessonRoutes = require("./Routes/lessonRoutes")
-const updateRoutes = require("./Routes/updateRoutes")
+const commentRoutes = require("./Routes/commentRoutes")
+
 
 const express = require("express")
 require("dotenv").config()
@@ -21,7 +22,7 @@ app.use((req,res, next) => {
 
 
 app.use("/api/lessons", lessonRoutes)
-app.use("/api/updates", updateRoutes)
+app.use("/api/comment", commentRoutes)
 
 
 
